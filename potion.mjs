@@ -1,5 +1,5 @@
-export default class Potion{
-    constructor( name, value, weight, time ){
+export default class Potion {
+    constructor(name, value, weight, time) {
         this.name = name;
         this.value = value;
         this.weight = weight;
@@ -13,11 +13,23 @@ export default class Potion{
         return new Potion(potion_name, value, weight, time);
     }
 
-    static failed(){
+    static failed() {
         return new FailedPotion();
     }
 
-    static sanity(){
+    static sanity() {
         return new PotionOfSanity();
+    }
+}
+
+class FailedPotion extends Potion{
+    constructor(){
+        super("Failed potion", 0, 0, 0);
+    }
+}
+
+class PotionOfSanity extends Potion{
+    constructor(){
+        super("Potion of Sanity", 1000, 1, 50);
     }
 }
